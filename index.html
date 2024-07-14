@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Portfolio</title>
+		<link href="style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+		<link href="./css/style.css" rel="stylesheet">
+	</head>
+	<style>
+		.banner {
+			width: 100%;
+			z-index: -10;
+			display: flex;
+			justify-content: center;
+		}
+
+		.banner video {
+			padding-top: 8em;
+			width: 70%;
+		}
+
+		@media (width < 1000px) {
+			.banner video {
+				padding-top: 0;
+				width: 100%;
+			}
+		}
+		
+		header { 
+			position: fixed;
+			top: 0;
+			z-index: 999;
+			width: 100%;
+			backdrop-filter: blur(10px);
+		}
+
+		header .header-content {
+			padding-top: 2em;
+			padding-bottom: 2em;
+			padding-left: 3em;
+			padding-right: 3em;
+			width: 70%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+
+		header .header-content a {
+			font-weight: bold;
+			margin-right: 2em;
+		}
+
+		@media (width < 1000px) {
+			header .header-content {
+				padding-left: 0;
+				padding-right: 0;
+				padding-top: 1.5em;
+				padding-bottom: 1.5em;
+				width: 100%;
+			}
+
+			header .header-content a {
+				font-size: 0.6em;
+			}
+		}
+
+		.cards-table {
+			display: flex;
+			flex-direction: row;
+			justify-content: stretch;
+			gap: 10%;
+			width: 100%;
+		}
+
+		.cards-table .card-column {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			gap: 2em;
+		}
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			padding: 1.5em 2em 1.5em 2em;
+			border-radius: 0.5em;
+			background-color: var(--primary);
+			box-shadow: 0px 40px 60px 27px rgba(0, 0, 0, 20%);
+		}
+
+		@media(width < 1150px) {
+			.cards-table {
+				flex-direction: column;
+				gap: 3em;
+			}
+
+			.cards-table .card-column {
+				gap: 3em;
+			}
+		}
+
+		.separator {
+			width: 100%;
+			height: 2px;
+			background-color: white;
+		}
+
+		.project-name {
+			width: 100%;
+			text-align: center;
+		}
+
+		.cards-table .card p, h2 {
+			margin: 0;
+		}
+
+		.card .project-duration {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.card .tech-list {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 1em 0em;
+			justify-content: space-between;
+		}
+
+		.card .tech-list p {
+			flex-basis: 50%;
+		}
+
+
+
+		.feature-section {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacing);
+		}
+
+		.feature-section img, video {
+			width: 50%;
+			object-fit: contain;
+		}
+
+		.feature-section .feature-content {
+			display: flex;
+			flex-direction: row;
+			align-items: start;
+			gap: 1em;
+		}
+
+		@media (width < 1000px) {
+			.feature-section .feature-content {
+				flex-direction: column;
+			}
+
+			.feature-section img, video {
+				width: 100%;
+			}
+		}
+
+		.feature-section .feature-content p {
+			margin: 0;
+		}
+	</style>
+	<script type="text/javascript">
+		document.addEventListener("DOMContentLoaded", () => {
+			let headerLinks = document.getElementsByClassName("section-link");
+			for (const headerLink of headerLinks) {
+				headerLink.onclick = () => {
+					let attrib = headerLink.getAttribute("data-ref");
+					if (attrib === undefined) {
+						return;
+					}
+
+					let element = document.getElementById(attrib);
+					if (element === undefined || element === null) {
+						return;
+					}
+
+					element.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+				}
+			}
+		});
+	</script>
+	<body>
+		<div class=banner>
+			<video src="./res/FlareEngine.mp4" autoplay muted controls></video>
+		</div>
+		<header>
+			<div class="header-content">
+				<a class=section-link data-ref=section-about-me>ABOUT ME</a>
+				<a class=section-link data-ref=section-skills>SKILLS</a>
+				<a class=section-link data-ref=section-project>MY PROJECTS</a>
+				<a href="./res/CV.pdf">RESUME</a>
+			</div>
+		</header>
+		<div class="page-content">
+			<h1>ABOUT ME</h1>
+			<div id=section-about-me class=about-me>
+				<p>
+					I’m <span class="my-name weight-bold">Anton Plakhotia</span>, a software engineering student from Ukraine, following my passion in game development and computer graphics.
+				</p>
+
+				<p class="contact-me">
+					Contact me via email <a href="mailto: antonplakhotia@gmail.com">antonplakhotia@gmail.com</a>
+				</p>
+			</div>
+			<h1>MY SKILLS</h1>
+			<div id=section-skills class=cards-table>
+				<div class=card-column>
+					<div class=card>
+						<h2>Languages</h2>
+						<p>C++</p>
+						<p>C#</p>
+						<p>GLSL</p>
+						<p>Python</p>
+						<p>Lua</p>
+					</div>
+					<div class=card>
+						<h2>Engines</h2>
+						<p>Unity</p>
+						<p>Godot</p>
+					</div>
+				</div>
+				<div class=card-column>
+					<div class=card>
+						<h2>Rendering APIs</h2>
+						<p>OpenGL</p>
+						<p>Vulkan</p>
+					</div>
+					<div class=card>
+						<h2>Tools</h2>
+						<p>Premake</p>
+						<p>Dear ImGui</p>
+						<p>Git &amp GitHub</p>
+						<p>Tracy profiler</p>
+						<p>Blender</p>
+					</div>
+				</div>
+			</div>
+			<h1>MY PROJECTS</h1>
+
+			<!-- Project section -->
+
+			<div class=separator></div>
+			<h1 class=project-name id=section-project>FLARE ENGINE</h1>
+			<div class="about-project cards-table">
+				<div class=card-column>
+					<div class=card>
+						<h2>About the project</h2>
+						<p>
+						The project started as a way to learn how internal systems of a game engine work.
+						</p>
+					</div>
+				</div>
+				<div class=card-column>
+					<div class=card>
+						<div class=project-duration>
+							<h2>Duration</h2>
+							<p>2023-2024</p>
+						</div>
+						<h2>Tech</h2>
+						<div class=tech-list>
+							<p>C++</p>
+							<p>Vulkan</p>
+							<p>ImGui</p>
+							<p>Assimp</p>
+							<p>GLFW</p>
+							<p>Premake</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Rendering Features -->
+			<h1>RENDERING FEATURES</h1>
+			<p>The 3D rendering is done by a forward renderer, which supports HRD, directional, point and spotlights.</p>
+			<div class=feature-section>
+				<h2>Shadow Mapping</h2>
+				<div class=feature-content>
+					<video autoplay muted loop src="./res/ShadowMapping.mp4"></video>
+					<p>
+					An implementation of Percentage Closer Soft Shadows combined with Cascaded Shadow Maps
+					</p>
+				</div>
+			</div>
+
+			<div class=feature-section>
+				<h2>Post Processing</h2>
+				<div class=feature-content>
+					<video autoplay muted src="./res/SunTemple.mp4"></video>
+					<div>
+						<p>
+						There are 4 post processing effects available in total:
+						</p>
+						<ul>
+							<li>Vignette</li>
+							<li>Tone mapping</li>
+							<li>Screen Space Ambient Occlusion</li>
+							<li>Atmosphere</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class=feature-section>
+				<h2>Atmosphere Rendering</h2>
+				<div class=feature-content>
+					<video autoplay muted src="./res/Atmosphere.mp4"></video>
+					<p>
+					An implementation of “A Scalable and Production Ready Sky and Atmosphere Rendering Technique”
+					</p>
+				</div>
+			</div>
+
+			<div class=feature-section>
+				<h2>Decals</h2>
+				<div class=feature-content>
+					<video autoplay muted src="./res/Decals.mp4"></video>
+					<p>
+					Decals are rendered by rasterizing a cube and reconstructing world space position from the depth buffer, before transforming it to cube’s object space and using it as the UVs
+					</p>
+				</div>
+			</div>
+
+			<div>
+				<h2>Render Graph</h2>
+				<p>
+Manually writing down all the pipeline barriers in Vulkan, is a rather error-prone process. In order to reduce the possibility of error and simplify the process of implementing new features into the rendering pipeline, I made a decision to implement a simple render graph, which is able to automatically generate pipeline barriers.
+				</p>
+			</div>
+
+			<h1>OTHER FEATURES</h1>
+
+			<h2>Archetype based ECS</h2>
+
+			<ul>
+				<li>Allows for cache friendly access of entity components, by storing all entities of the same archetype sequentially in memory.</li>
+				<li>Supports querying for existing entities and entities created or deleted during the frame.</li>
+				<li>Includes support for adding system execution dependencies.</li>
+			</ul>
+		</div>
+	</body>
+</html>

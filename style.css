@@ -1,0 +1,85 @@
+* {
+	--primary: #27282A;
+	--primary-transparent: #27282A00;
+	--spacing: 2em;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+
+	font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-weight: 300;
+	font-variation-settings: "slnt" 0;
+
+	color: white;
+	background-color: var(--primary);
+
+	overflow: scroll;
+	overflow-x: hidden;
+	scrollbar-width: thin;
+	scrollbar-color: red blue;
+
+	margin-bottom: 10em;
+}
+
+.weight-bold {
+	font-weight: bold;
+}
+
+p, li {
+	font-size: 24px;
+}
+
+li {
+	line-height: 1.5;
+}
+
+h1 {
+	font-size: 40px;
+	letter-spacing: 4px;
+}
+
+a {
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+@media (width < 700px) {
+	p, li {
+		font-size: 16px;
+	}
+
+	h1 {
+		font-size: 24px;
+	}
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+@media (width > 700px) {
+	.page-content {
+		padding-left: 20%;
+		padding-right: 20%;
+	}
+}
+
+@media (width <= 700px) {
+	.page-content {
+		padding-left: 12%;
+		padding-right: 12%;
+	}
+}
+
+.page-content {
+	padding-top: 3em;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing);
+}
