@@ -278,7 +278,7 @@
 					<div class=card>
 						<div class=project-duration>
 							<h2>Duration</h2>
-							<p>2023-2024</p>
+							<p>2023-2025</p>
 						</div>
 						<h2>Tech</h2>
 						<div class=tech-list>
@@ -299,7 +299,7 @@
 				The 3D rendering is done by a forward renderer, which supports HRD, directional, point and spotlights.
 				</p>
 				<p>
-				It also implements GPU instancing and frustum culling to reduce the number draw calls.
+				The renderer uses GPU instancing for everything and has full depth prepass which is required for the AO.
 				</p>
 			</div>
 			<div class=feature-section>
@@ -318,13 +318,14 @@
 					<video autoplay muted loop src="./res/PostProcessing.mp4"></video>
 					<div>
 						<p>
-						There are 4 post processing effects available in total:
+						There are 5 post processing effects available in total:
 						</p>
 						<ul>
 							<li>Vignette</li>
 							<li>Tone mapping</li>
-							<li>Screen Space Ambient Occlusion</li>
+							<li>Horizon Based Ambient Occlusion</li>
 							<li>Atmosphere</li>
+							<li>Bloom (from Call of Duty Advanced Warfare)</li>
 						</ul>
 					</div>
 				</div>
