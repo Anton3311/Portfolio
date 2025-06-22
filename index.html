@@ -1,4 +1,4 @@
-<!DOCTYPE html>index
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -8,7 +8,6 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-		<link href="./css/style.css" rel="stylesheet">
 	</head>
 	<style>
 		.banner {
@@ -198,7 +197,7 @@
 	</script>
 	<body>
 		<div class=banner>
-			<video src="./res/FlareEngine.mp4" autoplay muted controls></video>
+			<video src="./res/Main Demo.mp4" autoplay muted controls></video>
 		</div>
 		<header>
 			<div class="header-content">
@@ -296,16 +295,16 @@
 			<h1>RENDERING FEATURES</h1>
 			<div>
 				<p>
-				The 3D rendering is done by a forward renderer, which supports HRD, directional, point and spotlights.
+				The 3D rendering is done by a forward renderer, implements PBR and supports HRD, directional, point and spotlights.
 				</p>
 				<p>
-				The renderer uses GPU instancing for everything and has full depth prepass which is required for the AO.
+				The renderer relies on GPU instancing for 3D geometry and has full depth prepass which is required for the AO.
 				</p>
 			</div>
 			<div class=feature-section>
 				<h2>Shadow Mapping</h2>
 				<div class=feature-content>
-					<video autoplay muted loop src="./res/ShadowMapping.mp4"></video>
+					<video autoplay muted loop src="./res/Shadow Mapping.mp4"></video>
 					<p>
 					An implementation of Percentage Closer Soft Shadows combined with Cascaded Shadow Maps
 					</p>
@@ -321,22 +320,42 @@
 						There are 5 post processing effects available in total:
 						</p>
 						<ul>
-							<li>Vignette</li>
-							<li>Tone mapping</li>
-							<li>Horizon Based Ambient Occlusion</li>
-							<li>Atmosphere</li>
 							<li>Bloom (from Call of Duty Advanced Warfare)</li>
+							<li>Horizon Based Ambient Occlusion</li>
+							<li>Procedural Atmosphere</li>
+							<li>Tone mapping</li>
+							<li>Vignette</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 
 			<div class=feature-section>
-				<h2>Atmosphere Rendering</h2>
+				<h2>Procedural Atmosphere</h2>
 				<div class=feature-content>
 					<video autoplay muted loop src="./res/Atmosphere.mp4"></video>
 					<p>
 					An implementation of “A Scalable and Production Ready Sky and Atmosphere Rendering Technique”
+					</p>
+				</div>
+			</div>
+
+			<div class=feature-section>
+				<h2>Horizon Based Ambient Occlusion</h2>
+				<div class=feature-content>
+					<img src="res/HBAO Combined.png" alt="Horizon Based Ambient Occlusion"/>
+					<p>
+					Implemented as a series of compute shaders.
+					Uses 4 deinterleaved textures with different sampling patterns in order to improve the cache hit rate.
+					</p>
+				</div>
+			</div>
+
+			<div class=feature-section>
+				<h2>Spotlight shadows</h2>
+				<div class=feature-content>
+					<video autoplay muted loop src="./res/Spotlight Shadows.mp4"></video>
+					<p>
 					</p>
 				</div>
 			</div>
@@ -363,7 +382,7 @@ Manually writing down all the pipeline barriers in Vulkan, is a rather error-pro
 			<h2>Archetype based ECS</h2>
 
 			<ul>
-				<li>Allows for cache friendly access of entity components, by storing all entities of the same archetype sequentially in memory.</li>
+				<li>Allows for cache friendly access of entity components, by storing all components sequentially in memory.</li>
 				<li>Supports querying for existing entities and entities created or deleted during the frame.</li>
 				<li>Includes support for adding system execution dependencies.</li>
 			</ul>
