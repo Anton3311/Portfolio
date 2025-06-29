@@ -30,11 +30,8 @@
 		}
 		
 		header { 
-			position: fixed;
-			top: 0;
 			z-index: 999;
 			width: 100%;
-			backdrop-filter: blur(10px);
 		}
 
 		header .header-content {
@@ -68,6 +65,14 @@
 
 			header .header-content a {
 				font-size: 0.6em;
+			}
+		}
+
+		@media (width >= 1000px) {
+			header {
+				position: fixed;
+				top: 0;
+				backdrop-filter: blur(10px);
 			}
 		}
 
@@ -211,9 +216,6 @@
 		});
 	</script>
 	<body>
-		<div class=banner>
-			<video src="./res/Main Demo.mp4" autoplay muted controls></video>
-		</div>
 		<header>
 			<div class="header-content">
 				<a class=section-link data-ref=section-about-me>ABOUT ME</a>
@@ -221,6 +223,9 @@
 				<a class=section-link data-ref=section-project>MY PROJECTS</a>
 			</div>
 		</header>
+		<div class=banner>
+			<video src="./res/Main Demo.mp4" autoplay muted controls></video>
+		</div>
 		<div class="page-content">
 			<h1>ABOUT ME</h1>
 			<div id=section-about-me class=about-me>
