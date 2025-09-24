@@ -344,3 +344,12 @@ header .header-content .github-link img {
 .project-desc .project-desc-par {
 	max-width: 30em;
 }
+
+.app-name, .lib-name {
+	font-weight: bold;
+}
+
+.note {
+	padding-left: 40px;
+	color: #aaaaaa;
+}
