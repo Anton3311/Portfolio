@@ -10,190 +10,6 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 	</head>
 	<style>
-		.banner {
-			width: 100%;
-			z-index: -10;
-			display: flex;
-			justify-content: center;
-		}
-
-		.banner video {
-			padding-top: 8em;
-			width: 70%;
-		}
-
-		@media (width < 1000px) {
-			.banner video {
-				padding-top: 0;
-				width: 100%;
-			}
-		}
-		
-		header { 
-			z-index: 999;
-			width: 100%;
-		}
-
-		header .header-content {
-			padding-top: 2em;
-			padding-bottom: 2em;
-			padding-left: 3em;
-			padding-right: 3em;
-			width: 100%;
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
-		}
-
-		header .header-content a {
-			font-weight: bold;
-			margin-right: 2em;
-			text-decoration: none;
-		}
-
-		header .header-content a:hover {
-			text-decoration: underline;
-		}
-
-		@media (width < 1000px) {
-			header .header-content {
-				padding-left: 0;
-				padding-right: 0;
-				padding-top: 1.5em;
-				padding-bottom: 1.5em;
-			}
-
-			header .header-content a {
-				font-size: 0.6em;
-			}
-		}
-
-		@media (width >= 1000px) {
-			header {
-				position: fixed;
-				top: 0;
-				backdrop-filter: blur(10px);
-			}
-		}
-
-		.cards-table {
-			display: flex;
-			flex-direction: row;
-			justify-content: stretch;
-			gap: 10%;
-			width: 100%;
-		}
-
-		.cards-table .card-column {
-			display: flex;
-			flex-direction: column;
-			width: 100%;
-			gap: 2em;
-		}
-
-		.card {
-			display: flex;
-			flex-direction: column;
-			gap: 1em;
-			padding: 1.5em 2em 1.5em 2em;
-			border-radius: 0.5em;
-			background-color: var(--primary);
-			box-shadow: 0px 40px 60px 27px rgba(0, 0, 0, 20%);
-		}
-
-		@media(width < 1150px) {
-			.cards-table {
-				flex-direction: column;
-				gap: 3em;
-			}
-
-			.cards-table .card-column {
-				gap: 3em;
-			}
-		}
-
-		.separator {
-			width: 100%;
-			height: 2px;
-			background-color: white;
-		}
-
-		.project-name {
-			width: 100%;
-			text-align: center;
-		}
-
-		.cards-table .card p, h2 {
-			margin: 0;
-		}
-
-		.card .project-duration {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		.card .tech-list {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 1em 0em;
-			justify-content: space-between;
-		}
-
-		.card .tech-list p {
-			flex-basis: 50%;
-		}
-
-
-
-		.feature-section {
-			display: flex;
-			flex-direction: column;
-			gap: var(--spacing);
-		}
-
-		.feature-section img, video {
-			width: 50%;
-			object-fit: contain;
-		}
-
-		.feature-section .feature-content {
-			display: flex;
-			flex-direction: row;
-			align-items: start;
-			gap: 1em;
-		}
-
-		@media (width < 1000px) {
-			.feature-section .feature-content {
-				flex-direction: column;
-			}
-
-			.feature-section img, video {
-				width: 100%;
-			}
-		}
-
-		.feature-section .feature-content p {
-			margin: 0;
-		}
-
-		.image-with-title {
-			width: 100%;
-		}
-
-		.image-with-title img {
-			width: 100%;
-		}
-
-		.image-with-title p {
-			width: 100%;
-			text-align: center;
-			font-style: italic;
-			font-size: 1.2em;
-		}
 	</style>
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", () => {
@@ -221,12 +37,10 @@
 				<a class=section-link data-ref=section-about-me>ABOUT ME</a>
 				<a class=section-link data-ref=section-skills>MY SKILLS</a>
 				<a class=section-link data-ref=section-project>MY PROJECTS</a>
+				<a class="github-link" href="https://github.com/Anton3311"><img src="res/icons/github-mark-white.svg" style="max-width: 40px; max-height: 40px;"/></a>
 			</div>
 		</header>
-		<div class=banner>
-			<video src="./res/Main Demo.mp4" autoplay muted controls></video>
-		</div>
-		<div class="page-content">
+		<div class="page-content" style="margin-top: 8em">
 			<h1>ABOUT ME</h1>
 			<div id=section-about-me class=about-me>
 				<p>
@@ -271,137 +85,18 @@
 					</div>
 				</div>
 			</div>
-			<h1>MY PROJECTS</h1>
+			<h1 id="section-project">MY PROJECTS</h1>
 
-			<!-- Project section -->
-
-			<div class=separator></div>
-			<h1 class=project-name id=section-project>FLARE ENGINE</h1>
-			<div class="about-project cards-table">
-				<div class=card-column>
-					<div class=card>
-						<h2>About the project</h2>
-						<p>
-						The project started as a way to learn how internal systems of a game engine work.
-						</p>
-
-						<br>
-
-						<a href="https://github.com/Anton3311/FlareEngine">The project is available on Github.</a>
-						<p>
-						Most of the work is being done on the <b>dev</b> branch.
-						</p>
-					</div>
-				</div>
-				<div class=card-column>
-					<div class=card>
-						<div class=project-duration>
-							<h2>Duration</h2>
-							<p>2023-2025</p>
-						</div>
-						<h2>Tech</h2>
-						<div class=tech-list>
-							<p>C++</p>
-							<p>Vulkan</p>
-							<p>ImGui</p>
-							<p>Assimp</p>
-							<p>GLFW</p>
-							<p>Premake</p>
-						</div>
-					</div>
-				</div>
+			<div class="project-list">
+				<a href="instant_run.html" class="project-card">
+					<img src="res/Instant Run.png"/>
+					<h3 class="project-name">Instant Run</h3>
+				</a>
+				<a href="flare_engine.html" class="project-card">
+					<img src="res/HBAO Combined.png"/>
+					<h3 class="project-name">Flare Engine</h3>
+				</a>
 			</div>
-			<!-- Rendering Features -->
-			<h1>RENDERING FEATURES</h1>
-			<div>
-				<p>
-				The 3D rendering is done by a forward renderer, implements PBR and supports HRD, directional, point and spotlights.
-				</p>
-				<p>
-				The renderer relies on GPU instancing for 3D geometry and has full depth prepass which is required for the AO.
-				</p>
-			</div>
-			<div class=feature-section>
-				<h2>Shadow Mapping</h2>
-				<div class=feature-content>
-					<video autoplay muted loop src="./res/Shadow Mapping.mp4"></video>
-					<p>
-					An implementation of Percentage Closer Soft Shadows combined with Cascaded Shadow Maps.
-					</p>
-				</div>
-			</div>
-
-			<div class=feature-section>
-				<h2>Bloom</h2>
-				<div class=feature-content>
-					<img src="res/Bloom.png" alt="Bloom" />
-					<p>
-					Implementation of Bloom from Call of Duty Advanced Warfare.
-					</p>
-				</div>
-			</div>
-
-			<div class=feature-section>
-				<h2>Procedural Atmosphere</h2>
-				<div class=feature-content>
-					<video autoplay muted loop src="./res/Atmosphere.mp4"></video>
-					<p>
-					An implementation of “A Scalable and Production Ready Sky and Atmosphere Rendering Technique”.
-					</p>
-				</div>
-			</div>
-
-			<div class=feature-section>
-				<h2>Horizon Based Ambient Occlusion</h2>
-				<div class=feature-content>
-					<img src="res/HBAO Combined.png" alt="Horizon Based Ambient Occlusion"/>
-					<p>
-					Implemented as a series of compute shaders.
-					Uses 4 deinterleaved textures with different sampling patterns in order to improve the cache hit rate.
-					</p>
-				</div>
-			</div>
-
-			<div class=feature-section>
-				<h2>Spotlight shadows</h2>
-				<div class=feature-content>
-					<video autoplay muted loop src="./res/Spotlight Shadows.mp4"></video>
-				</div>
-			</div>
-
-			<div class=feature-section>
-				<h2>Decals</h2>
-				<div class=feature-content>
-					<video autoplay muted loop src="./res/Decals.mp4"></video>
-					<p>
-					Decals are rendered by rasterizing a cube and reconstructing world space position from the depth buffer, before transforming it to cube’s object space and using it as the UVs.
-					</p>
-				</div>
-			</div>
-
-			<div>
-				<h2>Render Graph</h2>
-				<p>
-Manually writing down all the pipeline barriers in Vulkan, is a rather error-prone process. In order to reduce the possibility of error and simplify the process of implementing new features into the rendering pipeline, I made a decision to implement a simple render graph, which is able to automatically generate pipeline barriers.
-				</p>
-
-				<div class="image-with-title">
-					<img src="res/Render Graph.png" alt="Render Graph Visualization" />
-					<p>
-					Visualization of Render Graph (compute passes marked in green)
-					</p>
-				</div>
-			</div>
-
-			<h1>OTHER FEATURES</h1>
-
-			<h2>Archetype based ECS</h2>
-
-			<ul>
-				<li>Allows for cache friendly access of entity components, by storing all components sequentially in memory.</li>
-				<li>Supports querying for existing entities and entities created or deleted during the frame.</li>
-				<li>Includes support for adding system execution dependencies.</li>
-			</ul>
 		</div>
 	</body>
 </html>

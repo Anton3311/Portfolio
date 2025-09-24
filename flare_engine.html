@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Project: Flare Enine</title>
+		<link href="style.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+	</head>
+<body>
+	<h1 class=project-name id=section-project style="margin-top: 1em">FLARE ENGINE</h1>
+	<div class=banner>
+		<video src="./res/Main Demo.mp4" autoplay muted controls></video>
+	</div>
+	<div class="page-content">
+		<div class="about-project cards-table">
+			<div class=card-column>
+				<div class=card>
+					<h2>About the project</h2>
+					<p>
+					The project started as a way to learn how internal systems of a game engine work.
+					</p>
+
+					<br>
+
+					<a href="https://github.com/Anton3311/FlareEngine">The project is available on Github.</a>
+					<p>
+					Most of the work is being done on the <b>dev</b> branch.
+					</p>
+				</div>
+			</div>
+			<div class=card-column>
+				<div class=card>
+					<div class=project-duration>
+						<h2>Duration</h2>
+						<p>2023-2025</p>
+					</div>
+					<h2>Tech</h2>
+					<div class=tech-list>
+						<p>C++</p>
+						<p>Vulkan</p>
+						<p>ImGui</p>
+						<p>Assimp</p>
+						<p>GLFW</p>
+						<p>Premake</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Rendering Features -->
+		<h1>RENDERING FEATURES</h1>
+		<div>
+			<p>
+			The 3D rendering is done by a forward renderer, implements PBR and supports HRD, directional, point and spotlights.
+			</p>
+			<p>
+			The renderer relies on GPU instancing for 3D geometry and has full depth prepass which is required for the AO.
+			</p>
+		</div>
+		<div class=feature-section>
+			<h2>Shadow Mapping</h2>
+			<div class=feature-content>
+				<video autoplay muted loop src="./res/Shadow Mapping.mp4"></video>
+				<p>
+				An implementation of Percentage Closer Soft Shadows combined with Cascaded Shadow Maps.
+				</p>
+			</div>
+		</div>
+
+		<div class=feature-section>
+			<h2>Bloom</h2>
+			<div class=feature-content>
+				<img src="res/Bloom.png" alt="Bloom" />
+				<p>
+				Implementation of Bloom from Call of Duty Advanced Warfare.
+				</p>
+			</div>
+		</div>
+
+		<div class=feature-section>
+			<h2>Procedural Atmosphere</h2>
+			<div class=feature-content>
+				<video autoplay muted loop src="./res/Atmosphere.mp4"></video>
+				<p>
+				An implementation of “A Scalable and Production Ready Sky and Atmosphere Rendering Technique”.
+				</p>
+			</div>
+		</div>
+
+		<div class=feature-section>
+			<h2>Horizon Based Ambient Occlusion</h2>
+			<div class=feature-content>
+				<img src="res/HBAO Combined.png" alt="Horizon Based Ambient Occlusion"/>
+				<p>
+				Implemented as a series of compute shaders.
+				Uses 4 deinterleaved textures with different sampling patterns in order to improve the cache hit rate.
+				</p>
+			</div>
+		</div>
+
+		<div class=feature-section>
+			<h2>Spotlight shadows</h2>
+			<div class=feature-content>
+				<video autoplay muted loop src="./res/Spotlight Shadows.mp4"></video>
+			</div>
+		</div>
+
+		<div class=feature-section>
+			<h2>Decals</h2>
+			<div class=feature-content>
+				<video autoplay muted loop src="./res/Decals.mp4"></video>
+				<p>
+				Decals are rendered by rasterizing a cube and reconstructing world space position from the depth buffer, before transforming it to cube’s object space and using it as the UVs.
+				</p>
+			</div>
+		</div>
+
+		<div>
+			<h2>Render Graph</h2>
+			<p>
+	Manually writing down all the pipeline barriers in Vulkan, is a rather error-prone process. In order to reduce the possibility of error and simplify the process of implementing new features into the rendering pipeline, I made a decision to implement a simple render graph, which is able to automatically generate pipeline barriers.
+			</p>
+
+			<div class="image-with-title">
+				<img src="res/Render Graph.png" alt="Render Graph Visualization" />
+				<p>
+				Visualization of Render Graph (compute passes marked in green)
+				</p>
+			</div>
+		</div>
+
+		<h1>OTHER FEATURES</h1>
+
+		<h2>Archetype based ECS</h2>
+
+		<ul>
+			<li>Allows for cache friendly access of entity components, by storing all components sequentially in memory.</li>
+			<li>Supports querying for existing entities and entities created or deleted during the frame.</li>
+			<li>Includes support for adding system execution dependencies.</li>
+		</ul>
+	</div>
+</body>
+<html>
